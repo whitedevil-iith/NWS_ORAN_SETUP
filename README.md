@@ -71,7 +71,6 @@ docker network create --subnet=10.0.0.0/8 oran-intel
 
 ### Step 1: Clone the srsRAN Project Repository and checkout
 ```bash
-mkdir -p RAN
 cd RAN
 git clone https://github.com/srsran/srsRAN_Project.git
 cd srsRAN_Project
