@@ -41,3 +41,4 @@ pcap:
   ngap_filename: /tmp/cu_ngap.pcap
     #e2ap_enable: true                 # Set to true to enable E2AP PCAPs.
     #e2ap_cu_cp_filename: /tmp/cu_e2ap.pcap # Path where the E2AP PCAP is stored.
+
