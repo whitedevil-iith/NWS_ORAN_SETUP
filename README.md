@@ -68,7 +68,6 @@ docker network create --subnet=10.0.0.0/8 oran-intel
 ```
 
 
-```
 ### Step 1: Clone and Set Up RIC
 ```bash
 mkdir -p RIC
