@@ -67,9 +67,18 @@ Then, create the docker network required for the setup:
 docker network create --subnet=10.0.0.0/8 oran-intel
 ```
 
+## Cloning and Setting Up srsRAN
 
+### Step 1: Clone the srsRAN Project Repository and checkout
+```bash
+cd RAN
+git clone https://github.com/srsran/srsRAN_Project.git
+cd srsRAN_Project
+git checkout e5d5b44
+cd ../..
 ```
-### Step 1: Clone and Set Up RIC
+
+### Step 2: Clone and Set Up RIC
 ```bash
 mkdir -p RIC
 cd RIC/
@@ -81,12 +90,12 @@ cd ../
 
 ### Terminal 1: Prepare and Start RIC from root directory
 ```bash
-#cp -f setup/srsRAN_Project/docker-compose.yml RAN/srsRAN_Project/docker/docker-compose.yml
-#cp -f setup/srsRAN_Project/open5gs.env RAN/srsRAN_Project/docker/open5gs/open5gs.env
-#cp -f setup/srsRAN_Project/subscriber_db.csv RAN/srsRAN_Project/docker/open5gs/subscriber_db.csv
+cp -f setup/srsRAN_Project/docker-compose.yml RAN/srsRAN_Project/docker/docker-compose.yml
+cp -f setup/srsRAN_Project/open5gs.env RAN/srsRAN_Project/docker/open5gs/open5gs.env
+cp -f setup/srsRAN_Project/subscriber_db.csv RAN/srsRAN_Project/docker/open5gs/subscriber_db.csv
 cp -f setup/oran-sc-ric/docker-compose.yml RIC/oran-sc-ric/docker-compose.yml
-#cp -f setup/srsRAN_Project/Dockerfile RAN/srsRAN_Project/docker/Dockerfile
-#cp -f setup/srsRAN_Project/install_dependencies.sh RAN/srsRAN_Project/docker/scripts/install_dependencies.sh
+cp -f setup/srsRAN_Project/Dockerfile RAN/srsRAN_Project/docker/Dockerfile
+cp -f setup/srsRAN_Project/install_dependencies.sh RAN/srsRAN_Project/docker/scripts/install_dependencies.sh
 
 ```
 Then, start RIC:
