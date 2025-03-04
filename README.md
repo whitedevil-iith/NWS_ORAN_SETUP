@@ -106,7 +106,7 @@ cd ../
 
 ## Running the Setup
 
-### Terminal 1: Prepare and Start RIC from root directory
+### Terminal 1: copy docker compose file from root directory which will deploy RIC in our defined network 
 ```bash
 cp -f setup/oran-sc-ric/docker-compose.yml RIC/oran-sc-ric/docker-compose.yml
 ```
@@ -116,7 +116,7 @@ cd RIC/oran-sc-ric
 docker compose up
 ```
 
-### Terminal 2: Start srsRAN from root directory
+### Terminal 2: Start srsRAN from root directory which will start the open5gs core network along with srsRAN and srsUE0 
 ```bash
 docker compose up
 ```
