@@ -23,7 +23,7 @@ services:
     container_name: open5gs
     image: 24whitedevil/open5gs:latest
     env_file:
-      - ${OPEN_5GS_ENV_FILE:-RAN/srsRAN_Project/docker/open5gs/open5gs.env}
+      - ${OPEN_5GS_ENV_FILE:-setup/srsRAN_Project/open5gs.env}
     privileged: true
     ports:
       - "9999:9999/tcp"
