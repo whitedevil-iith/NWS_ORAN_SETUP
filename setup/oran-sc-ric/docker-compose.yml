@@ -13,7 +13,7 @@ services:
   rtmgr_sim:
     container_name: ric_rtmgr_sim
     hostname: rtmgr_sim
-    image: 24whitedevil/oran-sc-ric_rtmgr-sim
+    image: 24whitedevil/oran-sc-ric_rtmgr-sim:i-release
     env_file:
       - .env
     environment:
@@ -144,7 +144,7 @@ services:
   python_xapp_runner:
     container_name: python_xapp_runner
     hostname: python_xapp_runner
-    image: 24whitedevil/oran-sc-ric_python-xapp-runner
+    image: 24whitedevil/oran-sc-ric_python-xapp-runner:i-release
     env_file:
       - .env
     environment:
