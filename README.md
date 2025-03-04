@@ -96,7 +96,7 @@ docker pull 24whitedevil/srsran
 ```
 
 
-### Step 1: Clone and Set Up RIC
+### Step 1: Clone and Set Up RIC inside the root directory of this project
 ```bash
 mkdir -p RIC
 cd RIC/
