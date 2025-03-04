@@ -144,7 +144,7 @@ services:
   python_xapp_runner:
     container_name: python_xapp_runner
     hostname: python_xapp_runner
-    image: 24whitedevil/oran-sc-ric_python-xapp-runner:i-release #24whitedevil/oran-sc-ric_python-xapp-runner
+    image: 24whitedevil/oran-sc-ric_python-xapp-runner:i-release
     env_file:
       - .env
     environment:
