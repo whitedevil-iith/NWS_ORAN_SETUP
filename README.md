@@ -1,7 +1,7 @@
 # NWS_ORAN_SETUP
-This repository will help you setup 1cu, 1du, and 1 ue with open5gs and ric.
+This repository will help you setup 1-cu, 1-du, and 1-ue with open5gs and ric.
 
-# srsRAN with RIC, grafana and Prometheus $Setup Guide
+# srsRAN, srsUE with RIC Setup Guide
 
 ## Prerequisites
 Ensure your system is up to date before proceeding with the installation.
@@ -12,7 +12,6 @@ sudo apt-get update && sudo apt-get upgrade -y
 # Install cmake and make
 sudo apt-get update
 sudo apt-get install -y cmake make
-
 ```
 
 ## Docker and dependencies Installation
@@ -67,7 +66,7 @@ Then, create the docker network required for the setup:
 docker network create --subnet=10.0.0.0/8 oran-intel
 ```
 
-# Docker Images for from 24whitedevil dockerhub repository
+# Docker Images from 24whitedevil dockerhub repository
 
 This repository provides the necessary commands to pull Docker images for the following projects:
 
