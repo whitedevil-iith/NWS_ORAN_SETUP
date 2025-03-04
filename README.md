@@ -67,6 +67,35 @@ Then, create the docker network required for the setup:
 docker network create --subnet=10.0.0.0/8 oran-intel
 ```
 
+# Docker Images for from 24whitedevil dockerhub repository
+
+This repository provides the necessary commands to pull Docker images for the following projects:
+
+- **open5gs**
+- **srsue**
+- **srsran**
+
+## Pulling Docker Images
+
+To pull the Docker images for each of the projects, you can use the following commands:
+
+#### 1. `open5gs`
+The `open5gs` Docker image is a part of the open-source 5G core network implementation.
+
+```bash
+docker pull 24whitedevil/open5gs
+```
+#### 2. `srsue`
+The `srsue` Docker image is related to the software for user equipment (UE) in LTE/5G networks.
+```bash
+docker pull 24whitedevil/srsue
+```
+#### 3. `srsran`
+The `srsran` Docker image is associated with the open-source LTE and 5G radio access network implementation.
+```bash
+docker pull 24whitedevil/srsran
+```
+
 
 ### Step 1: Clone and Set Up RIC
 ```bash
