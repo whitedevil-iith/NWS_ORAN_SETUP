@@ -123,6 +123,62 @@ services:
     command: bash -c '/srsue_4G/srsue/src/srsue /configs/ue.conf'
 
 
+  metrics-server:
+    container_name: metrics_server
+    image: srsran/metrics_server
+    build:
+      context: RAN/srsRAN_Project/docker/metrics_server
+    environment:
+      - PORT=${METRICS_SERVER_PORT}
+      - BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
+      - TESTBED=default
+      - URL=http://${DOCKER_INFLUXDB_INIT_HOST}:${DOCKER_INFLUXDB_INIT_PORT}
+      - ORG=${DOCKER_INFLUXDB_INIT_ORG}
+      - TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
+    ports:
+      - 55555:${METRICS_SERVER_PORT}/udp
+    networks:
+      oran-intel:
+        ipv4_address: 10.40.1.4 
+
+  influxdb:
+    container_name: influxdb
+    image: influxdb:${DOCKER_INFLUXDB_VERSION}
+    volumes:
+      - influxdb-storage:/var/lib/influxdb2:rw
+    env_file:
+      - .env
+    restart: on-failure:10
+    # Uncomment port section to access InfluxDB from outside the docker network
+    ports:
+      - 8086:${DOCKER_INFLUXDB_INIT_PORT}
+    networks:
+      oran-intel:
+        ipv4_address: 10.40.1.5
+
+  grafana:
+    container_name: grafana
+    image: srsran/grafana
+    build:
+      context: RAN/srsRAN_Project/docker/grafana
+    volumes:
+      - grafana-storage:/var/lib/grafana:rw
+    env_file:
+      - .env
+    depends_on:
+      - influxdb
+      - metrics-server
+    ports:
+      - 3300:${GRAFANA_PORT}
+    networks:
+      oran-intel:
+        ipv4_address: 10.40.1.6
+
+
+volumes:
+  gnb-storage:
+  grafana-storage:
+  influxdb-storage:
 
 networks:
   oran-intel:
