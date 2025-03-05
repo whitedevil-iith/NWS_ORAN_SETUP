@@ -121,6 +121,11 @@ docker compose up
 docker compose up
 ```
 
+### Terminal 3: To run the KPI-mon xapp
+```bash
+cd RIC/oran-sc-ric
+docker compose exec python_xapp_runner ./kpm_mon_xapp.py --kpm_report_style=5
+```
 This setup ensures that all required components for RIC and srsRAN are properly installed and running.
 
 
