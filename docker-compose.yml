@@ -127,7 +127,7 @@ services:
     container_name: metrics_server
     image: srsran/metrics_server
     build:
-      context: RAN/srsRAN_Project/docker/metrics_server
+      context: RAN/metrics_server
     environment:
       - PORT=${METRICS_SERVER_PORT}
       - BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
@@ -160,7 +160,7 @@ services:
     container_name: grafana
     image: srsran/grafana
     build:
-      context: RAN/srsRAN_Project/docker/grafana
+      context: RAN/grafana/
     volumes:
       - grafana-storage:/var/lib/grafana:rw
     env_file:
