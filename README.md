@@ -1,5 +1,5 @@
 # NWS_ORAN_SETUP
-This repository will help you setup 1-cu, 1-du, and 1-ue with open5gs and ric.
+This repository will help you setup 1-cu, 1-du, and 2-ues with open5gs and ric using ZMQ mode.
 
 # srsRAN, srsUE with RIC Setup Guide
 
@@ -116,10 +116,16 @@ cd RIC/oran-sc-ric
 docker compose up
 ```
 
-### Terminal 2: Start srsRAN from root directory which will start the open5gs core network along with srsRAN and srsUE0 
+### Terminal 2: Start srsRAN from root directory which will start the open5gs core network along with srsRAN and 2 UEs (UE0 and UE1)
 ```bash
 docker compose up
 ```
+
+### UE Configuration Details
+- **UE0 (srsue)**: Uses ZMQ port pair 0 (ports 5000/6000) - IP: 10.53.1.251
+- **UE1 (srsue1)**: Uses ZMQ port pair 1 (ports 5100/6100) - IP: 10.53.1.252
+
+Both UEs connect to the same DU via separate ZMQ channels.
 
 ### Terminal 3: To run the KPI-mon xapp
 ```bash

@@ -122,6 +122,39 @@ services:
         ipv4_address: 10.53.1.251
     command: bash -c '/srsue_4G/srsue/src/srsue /configs/ue.conf'
 
+  # Second UE (UE1) connecting to DU via ZMQ on port pair 1
+  ue1:
+    container_name: srsue1
+    image: 24whitedevil/srsue:latest
+    user: root
+    build:
+      context: UE
+      dockerfile: Dockerfile
+      args:
+        OS_VERSION: "22.04"
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - SYS_NICE
+      - SYS_RESOURCE
+      - NET_ADMIN
+    env_file:
+      - .env
+    depends_on:
+      - 5gc
+      - cu
+      - du
+    volumes:
+      - ./UE/ue1_zmq.conf:/configs/ue.conf
+      - /dev/null:/tmp/ue1.log
+    environment:
+      - LD_LIBRARY_PATH=/srsue_4G/lib/src/phy/rf/
+      - PING=${PING}
+    networks:
+      oran-intel:
+        ipv4_address: 10.53.1.252
+    command: bash -c '/srsue_4G/srsue/src/srsue /configs/ue.conf'
+
 
   metrics-server:
     container_name: metrics_server
